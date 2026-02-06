@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script type="text/javascript">
+        function calc() {
+            let url = '/Lab05/calc?x=' + $('#x').val() + '&y=' + $('#y').val() + '&op=' + $('#op').val();
+            $('#result').load(url);
+        }
+    </script>
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text" id="x" />
+    <select id="op">
+        <option value="1">+</option>
+        <option value="2">-</option>
+        <option value="3">x</option>
+        <option value="4">/</option>
+    </select>
+    <!-- + -->
+    <input type="text" id="y" />
+    <input type="button" value="=" onclick="calc()" />
+    <span id="result"></span>
+</body>
+
+</html>
