@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Register Page</h1>
+    <hr />
+    <form id="regForm">
+        Email: <input type="text" id="email" required>
+        <span id="mesg" style="color: red;"></span><br />
+        Password: <input type="password" id="passwd" required><br />
+        Name: <input type="text" id="name" required><br />
+        <input type="submit" value="Register">
+        <span id="result"></span>
+    </form>
+    <script>
+        let email = document.getElementById("email");
+        let passwd = document.getElementById("passwd");
+        let name = document.getElementById("name");
+        let mesg = document.getElementById("mesg");
+        let regForm = document.getElementById("regForm");
+        let result = document.getElementById("result");
+        email.addEventListener('blur', async () => {
+            // console.log("OK");
+            let url = "/api/members/exist?email=" + email.value;
+            let res = await fetch(url);
+            let isExist = await res.json();
+            // console.log(res);
+            // console.log(isExist);
+            mesg.textContent = isExist ? "Email已存在" : "";
+        });
+
+        regForm.addEventListener("submit", async (e) => {
+            e.preventDefault();
+            let data = {
+                email: email.value,
+                passwd: passwd.value,
+                name: name.value
+            };
+            let url = "/api/members/register";
+            let res = await fetch(url, {
+                method: 'POST',
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(data)
+            });
+            let json = await res.json();
+            // console.log(json);
+            if (json.success) {
+                location.href = "login.html";
+            } else {
+                result.textContent = "註冊失敗";
+            }
+        });
+
+    </script>
+</body>
+
+</html>

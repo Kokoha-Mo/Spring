@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#loginForm').on("submit", function (e) {
+                e.preventDefault();
+                let email = $('#email').val();
+                let passwd = $('#passwd').val();
+
+                $.ajax({
+                    url: 'api/members/loginV3',
+                    method: 'POST',
+                    contentType: 'application/json',
+                    data: JSON.stringify({
+                        email: email,
+                        passwd: passwd
+                    }),
+                    success: function (response) {
+                        console.log(response);
+                        if (response.success) {
+                            location.href = 'index.html';
+                        } else {
+                            $('#mesg').text('登入失敗');
+                        }
+                    },
+                    error: function (xhttp, status, error) {
+                        console.log(status);
+                        console.log(error);
+                    }
+                });
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <h1>Login Page</h1>
+    <hr />
+    <form id="loginForm">
+        Email: <input type="text" id="email" required><br />
+        Password: <input type="password" id="passwd" required><br />
+        <input type="submit" value="Login" />
+        <span id="mesg"></span>
+    </form>
+</body>
+
+</html>

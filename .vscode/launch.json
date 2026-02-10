@@ -2,6 +2,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Spring03Application",
+            "request": "launch",
+            "mainClass": "com.example.spring1.Spring03Application",
+            "projectName": ""
+        },
+        {
+            "type": "java",
             "name": "LabApplication",
             "request": "launch",
             "mainClass": "tw.test.lab.LabApplication",
