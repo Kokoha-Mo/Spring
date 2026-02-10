@@ -24,6 +24,7 @@ public class MyConfig {
         return user;
     }
 
+    @Bean
     public RestTemplate getRestTemplete() {
         return new RestTemplate();
     }
