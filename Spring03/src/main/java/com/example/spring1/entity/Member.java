@@ -5,6 +5,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.Lob;
 import jakarta.persistence.Table;
 import lombok.Data;
 
@@ -25,5 +26,6 @@ public class Member {
     @Column(nullable = false)
     private String passwd;
 
+    @Lob
     private byte[] icon;
 }
