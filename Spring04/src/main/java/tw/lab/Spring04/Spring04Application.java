@@ -1,13 +1,13 @@
-package tw.lab.Sring04;
+package tw.lab.Spring04;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class Sring04Application {
+public class Spring04Application {
 
 	public static void main(String[] args) {
-		SpringApplication.run(Sring04Application.class, args);
+		SpringApplication.run(Spring04Application.class, args);
 	}
 
 }
