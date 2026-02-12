@@ -12,14 +12,14 @@
             "name": "Spring03Application",
             "request": "launch",
             "mainClass": "com.example.spring1.Spring03Application",
-            "projectName": ""
+            "projectName": "Spring03"
         },
         {
             "type": "java",
             "name": "LabApplication",
             "request": "launch",
             "mainClass": "tw.test.lab.LabApplication",
-            "projectName": ""
+            "projectName": "Lab"
         },
         {
             "type": "java",
