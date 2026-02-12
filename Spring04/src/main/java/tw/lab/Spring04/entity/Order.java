@@ -33,7 +33,7 @@ public class Order {
     @ManyToOne
     @JoinColumn(name = "EmployeeID")
     @JsonBackReference
-    private Customer employee;
+    private Employee employee;
 
     @OneToMany(mappedBy = "order")
     private List<OrderDetail> orderdetails;
