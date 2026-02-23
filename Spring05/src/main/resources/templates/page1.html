@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Page1</h1>
+    <hr />
+    <h2 th:text="${companyName}">公司名稱</h2>
+    <div th:text="'Welcome1,' + ${userName}">Welcome,使用者</div>
+    <div th:text="${'Welcome2,' + userName}">Welcome,使用者</div>
+    <hr />
+    <div th:text="${user.id}?:'訪客'">ID</div>
+    <div th:text="${user.name}">User Name</div>
+    <div th:text="${user.age >= 18 ? '已成年':'未成年'}">是否成年</div>
+    <div th:text="${user.gender ? '男生':'女生'}">性別</div>
+    <div th:text="${user}">ToString</div>
+    <div>目前時間: <span th:text="${now}"></span></div>
+</body>
+
+</html>
