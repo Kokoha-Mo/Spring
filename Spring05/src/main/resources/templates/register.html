@@ -29,7 +29,7 @@
         </div>
         <button type="submit">註冊</button>
     </form>
-    <div>錯誤訊息</div>
+    <div th:if="${error}" th:text="${error}" style="color: red;">錯誤訊息</div>
 </body>
 
 </html>
