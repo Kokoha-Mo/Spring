@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Register Page</h1>
+    <hr />
+    <form method="post" enctype="multipart/form-data" th:action="@{/member/register}" th:object="${memberForm}">
+        <div>
+            <label>帳號</label>
+            <input type="text" th:field="*{email}" />
+        </div>
+        <div>
+            <label>密碼</label>
+            <input type="password" th:field="*{passwd}" />
+        </div>
+        <div>
+            <label>姓名</label>
+            <input type="text" th:field="*{name}" />
+        </div>
+        <div>
+            <label>頭像</label>
+            <input type="file" th:field="*{iconFile}" />
+        </div>
+        <button type="submit">註冊</button>
+    </form>
+    <div>錯誤訊息</div>
+</body>
+
+</html>

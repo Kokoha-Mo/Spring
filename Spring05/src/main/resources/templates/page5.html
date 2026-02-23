@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 80%;
+            margin: 2px auto;
+        }
+
+        td {
+            border: 1px solid #444;
+            padding: 1px 2px;
+            text-align: center;
+        }
+
+        .odd-row {
+            background-color: pink;
+        }
+
+        .even-row {
+            background-color: yellow;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Page5</h1>
+    <hr />
+    <table>
+        <tbody>
+            <tr th:each="area,status :${areas}" th:classappend="${status.odd?'odd-row':'even-row'}">
+                <td th:text="${status.index}">0</td>
+                <td th:text="${status.count}">1</td>
+                <td th:text="${area}">顯示區域</td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+
+</html>
