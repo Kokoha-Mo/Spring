@@ -14,6 +14,28 @@
     <hr />
     <h2>Hello,<span th:text="${member.name}"></span></h2>
     <div><img th:src="${icon}"></div>
+    <hr />
+    <div>
+        <a th:if="${page > 0}" th:href="@{/member/home(page = ${page-1},size = 10)}">Prev</a>
+        <span th:text="${page+1}"></span> / <span th:text="${hotels.totalPages}"></span>
+        | <a th:if="${page+1 < hotels.totalPages}" th:href="@{/member/home(page=${page+1},size=10)}">Next</a>
+    </div>
+    <table>
+        <thead>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Tel</th>
+            <th>Address</th>
+        </thead>
+        <tbody>
+            <tr th:each="hotel:${hotels.content}">
+                <td th:text="${hotel.id}"></td>
+                <td th:text="${hotel.name}"></td>
+                <td th:text="${hotel.tel}"></td>
+                <td th:text="${hotel.addr}"></td>
+            </tr>
+        </tbody>
+    </table>
 </body>
 
 </html>
