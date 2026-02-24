@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/sockjs-client@1.6.1/dist/sockjs.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/stompjs@2.3.3/lib/stomp.min.js"></script>
+</head>
+
+<body>
+    <h1>Chat Room</h1>
+    <hr />
+    <div>
+        Email: <input type="text" id="email"><br />
+        Password: <input type="password" id="passwd"><br />
+        <button id="login">Login</button>
+    </div>
+    <p>登入狀態: <span id="status">未登入</span></p>
+    <div id="chatDiv" style="display: display">
+        <div id="chatBox" style="border: 1px solid #ccc;width: 480px;height: 300px;overflow-y: scroll;"></div>
+        <input type="text" id="mesg" style="width: 400px;" />
+        <button id="send">Send</button>
+    </div>
+</body>
+
+</html>
