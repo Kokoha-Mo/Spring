@@ -11,7 +11,7 @@ import org.springframework.stereotype.Component;
 
 import tw.lab.Spring06.dto.Register;
 
-// @Aspect
+@Aspect
 @Component
 public class MyAspect {
 
@@ -81,16 +81,18 @@ public class MyAspect {
         Object[] args = joinPoint.getArgs();
         if (args != null) {
             for (int i = 0; i < args.length; i++) {
-                System.out.println(args[i]);
+                System.out.println("1." + args[i]);
                 System.out.println("------");
                 if (args[i] instanceof String) {
                     args[i] = ((String) args[i]).toUpperCase();
                 }
-                System.out.println(args[i]);
+                System.out.println("2." + args[i]);
                 System.out.println("------");
             }
         }
-        joinPoint.wait();
+        Object[] args2 = joinPoint.getArgs();
+        System.out.println("3." + args2[0]);
+        System.out.println("------");
 
     }
 

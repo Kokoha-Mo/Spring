@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class LabAspect {
 
-    @Around("@annotation(tw.lab.Spring06.annotation.LapAOP)")
+    @Around("@annotation(tw.lab.Spring06.annotation.LabAOP)")
     public Object doAround(ProceedingJoinPoint joinPoint) throws Throwable {
         System.out.println("Before");
         Object obj = joinPoint.proceed();
