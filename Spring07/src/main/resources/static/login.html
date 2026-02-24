@@ -37,6 +37,13 @@
 
             let data = await resp.json();
             console.log(data);
+
+            if (data.success) {
+                localStorage.setItem("token", data.token);
+                window.location.href = "main.html";
+            } else {
+                console.log("Login Failure");
+            }
         });
     </script>
 </body>
