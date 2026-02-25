@@ -2,6 +2,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Spring09Application",
+            "request": "launch",
+            "mainClass": "tw.lab.Spring09.Spring09Application",
+            "projectName": "Spring09"
+        },
+        {
+            "type": "java",
             "name": "Spring08Application",
             "request": "launch",
             "mainClass": "tw.lab.Spring08.Spring08Application",
