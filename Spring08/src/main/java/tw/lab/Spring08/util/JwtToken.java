@@ -3,6 +3,8 @@ package tw.lab.Spring08.util;
 import java.security.Key;
 import java.util.Date;
 
+import io.jsonwebtoken.Claims;
+import io.jsonwebtoken.Jws;
 import io.jsonwebtoken.JwtParser;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
@@ -29,5 +31,22 @@ public class JwtToken {
         String subject = parser.parseClaimsJws(token).getBody().getSubject();
 
         return subject;
+    }
+
+    public static Jws<Claims> parse(String token) {
+        return Jwts.parserBuilder().setSigningKey(KEY).build().parseClaimsJws(token);
+    }
+
+    public static String getEmail(String token) {
+        return parse(token).getBody().getSubject();
+    }
+
+    public static boolean isValid(String token) {
+        try {
+            parse(token);
+            return true;
+        } catch (Exception e) {
+            return false;
+        }
     }
 }
