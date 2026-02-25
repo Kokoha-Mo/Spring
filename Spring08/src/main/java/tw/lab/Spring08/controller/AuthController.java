@@ -30,11 +30,11 @@ public class AuthController {
         if (member == null) {
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("帳號錯誤");
         }
-        if (BCrypt.checkpw(login.getPasswd(), member.getPasswd())) {
+        if (!BCrypt.checkpw(login.getPasswd(), member.getPasswd())) {
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("密碼錯誤");
         }
         String token = JwtToken.createToken(member.getEmail());
 
-        return ResponseEntity.ok(new LoginResponse(token, member.getEmail()));
+        return ResponseEntity.ok(new LoginResponse(token, member.getEmail(), member.getName()));
     }
 }
