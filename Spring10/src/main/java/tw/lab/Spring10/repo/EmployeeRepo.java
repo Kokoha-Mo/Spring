@@ -35,4 +35,5 @@ public interface EmployeeRepo extends JpaRepository<Employee, Integer>,
     List<Employee> findBySalaryLessThan(Float high);
 
     List<Employee> findBySalaryGreaterThanAndFirstNameContaining(Float high, String name);
+
 }
