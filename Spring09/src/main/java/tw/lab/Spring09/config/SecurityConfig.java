@@ -23,21 +23,23 @@ public class SecurityConfig {
         httpSecurity.authorizeHttpRequests(
                 auth -> auth.requestMatchers("/login", "/js/**", "/css/**")
                         .permitAll()
+                        .requestMatchers("/.well-known/**")
+                        .permitAll()
                         .requestMatchers("/admin/**").hasRole("ADMIN")
-                        .requestMatchers("/main/**").hasAllRoles("ADMIN", "USER")
+                        .requestMatchers("/main/**").hasAnyRole("ADMIN", "USER")
                         .anyRequest().authenticated())
                 .formLogin(form -> form.loginPage("/login")
                         .usernameParameter("email")
                         .passwordParameter("passwd")
                         .loginProcessingUrl("/doLogin")
                         .defaultSuccessUrl("/main")
-                        .failureUrl("/login")
+                        .failureUrl("/login?error")
                         .permitAll())
-                .logout(logout -> logout.logoutUrl("/login")
-                        .logoutSuccessUrl("/login")
+                .logout(logout -> logout.logoutUrl("/logout")
+                        .logoutSuccessUrl("/login?logout")
                         .invalidateHttpSession(true)
                         .deleteCookies("JSESSIONID"))
-                .exceptionHandling(e -> e.accessDeniedPage("/Page403"));
+                .exceptionHandling(e -> e.accessDeniedPage("/page403"));
 
         return httpSecurity.build();
     }
@@ -48,7 +50,7 @@ public class SecurityConfig {
     }
 
     @Bean
-    public AuthenticationManager authenticationManager(AuthenticationConfiguration config) {
+    public AuthenticationManager authenticationManager(AuthenticationConfiguration config) throws Exception {
         return config.getAuthenticationManager();
 
     }
